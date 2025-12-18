@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <title>Guestbook</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1 id="title">guestbook</h1>
+    <p id="bio">leave a message for zombi3girrl 👾</p>
+
+    <div class="links">
+      <div style="font-family: VT323, monospace; font-size: 22px; color: #00ff00; text-align:center;">
+        SIGN BELOW
+      </div>
+
+      <input id="gb-name" placeholder="your name" style="padding:10px; font-family: VT323, monospace; font-size:18px;" />
+      <textarea id="gb-message" placeholder="your message" rows="4"
+        style="padding:10px; font-family: VT323, monospace; font-size:18px; resize: vertical;"></textarea>
+
+      <button id="gb-sign" class="button">SIGN GUESTBOOK</button>
+      <button id="gb-clear" class="button">CLEAR MY ENTRIES</button>
+
+      <button id="back-home" class="button">← BACK TO HOME</button>
+    </div>
+
+    <div class="links" style="margin-top: 18px;">
+      <div style="font-family: VT323, monospace; font-size: 22px; color: #ffff00; text-align:center;">
+        MESSAGES
+      </div>
+      <div id="gb-entries" style="display:grid; gap:12px;"></div>
+    </div>
+  </div>
+
+  <script src="guestbook.js"></script>
+</body>
+</html>
