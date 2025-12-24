@@ -1,12 +1,26 @@
-body{
+html , body {
+    height: 100%;
+    width: 100%;
     margin: 0;
-    min-height: 100vh;
+    overflow-x: hidden;
+}
 
-    background-image: url(assets/galaxy.png);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+*{
+    box-sizing: border-box;
+}
+
+html{
+  background-color: #000; /* no more gray */
+  background-image: url(assets/galaxy.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* desktop looks nice */
+}
+
+body{
+   min-height: 100%;
+  background: transparent;
 
     display: flex;
     flex-direction: column;
@@ -19,6 +33,11 @@ body{
     color:white;
 }
 
+@media (max-width: 768px){
+    html {
+       background-attachment: scroll;
+    }
+}
 /* Scroll progress bar */
     #scroll-progress {
       position: fixed;
@@ -31,28 +50,39 @@ body{
       transition: width 0.1s;
     }
 
+    body{
+      position: relative;
+    }
+
 /* make text readable */
 body::before{
     content: "";
-    position: fixed;
+    position: absolute;
     inset: 0;
     background: rgba(0,0,0,0.55);
     pointer-events: none;
+    z-index: 0;
 }
 
 /* Container for all content */
     .container {
-      position: relative;
-      z-index: 1;
       max-width: 800px;
       width: 100%;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
 
+    .links,.marquee,.guestbook,
+    .counter, .random-gif-box{
+      width: 100%;
+    }
     /* Under Construction banner */
     .construction {
       text-align: center;
       margin-bottom: 20px;
       animation: blink 1s infinite;
+      width: 100%;
     }
 
     @keyframes blink {
@@ -91,7 +121,11 @@ body::before{
     /* Title with rainbow effect */
     #title{
       margin: 20px 0;
-      font-size: 42px;
+      font-size: clamp(24px,6vw, 42px);
+      line-height: 1.2;
+      padding: 0 10px;
+      overflow-wrap: anywhere;
+      word-break: break-word;
       letter-spacing: 1px;
       text-align: center;
       background: linear-gradient(90deg, 
@@ -108,6 +142,12 @@ body::before{
       filter: drop-shadow(0 0 8px rgba(255,255,255,0.8))
               drop-shadow(0 0 15px rgba(138,124,255,0.6));
       animation: rainbow-shift 3s ease-in-out infinite;
+    }
+
+    @media (max-width: 480px) {
+      #title {
+        letter-spacing: 0px;
+      }
     }
 
     @keyframes rainbow-shift {
@@ -131,7 +171,8 @@ body::before{
       padding: 10px;
       background: #000000;
       border: 2px solid #00ff00;
-      display: inline-block;
+      display: block;
+      width: 100%;;
     }
 
     .counter-digits {
@@ -187,6 +228,13 @@ body::before{
       padding-top: 11px;
       padding-left: 13px;
     }
+
+    @media (max-width: 480px) {
+      body{padding: 40px 12px;}
+      .links{padding: 12px;}
+      .button { font-size: 16px; }
+    }
+
     /* Animated GIF placeholders */
     .gif-container {
       display: flex;
