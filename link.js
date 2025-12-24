@@ -1,18 +1,23 @@
 const igButton = document.getElementById("instagram");
 const ytButton = document.getElementById("youtube");
-const ttButton = document.getElementById("tiktok");
+const lbButton = document.getElementById("letterboxd");
 const emailButton = document.getElementById("contact");
 const picsBtn = document.getElementById("pics");
 const musicBtn = document.getElementById("music");
 let count = 0;
 const targetCount = Math.floor(Math.random() * 999999) + 100000;
 const counterEl = document.getElementById('visitor-count');
+const bioSection = document.getElementById("bio");
 //const pfButton = document.getElementById("portfolio");
 //i will add my portfolio in a minute i have to make a website
 //i want to make a cute under construction page 
 const gifs = ["assets/starrr.gif", "assets/woth.gif", "assets/eye roll.gif",
     "assets/mikuuu.gif", "assets/finn.gif"
 ]
+
+const bioPhrases = [ "hi", "why are you here?", "early sunsets over monroeville",
+  "watching you", "is this fun?", "loona", "(˶˃ ᵕ ˂˶)", "playing god", "five nights at zombi3girrl's",
+"STOPPPP", "shoutout to hatsune miku", "eevee was here"]
 
 igButton.addEventListener("click", function() {
     playClickSound();
@@ -24,14 +29,14 @@ ytButton.addEventListener("click", function() {
     window.location.href = "https://youtube.com/@zombi3girrl?si=m_1JVxBNUgowCqb-";
 });
 
-ttButton.addEventListener("click", function() {
+lbButton.addEventListener("click", function() {
     playClickSound();
-    window.location.href = "https://www.tiktok.com/@zombi3girrl";
+    window.location.href = "https://letterboxd.com/crazyymaniac/";
 });
 
 emailButton.addEventListener("click", function() {
     playClickSound();
-  window.location.href = "mailto:daniela64lopez@gmail.com?subject=Hello%20from%20your%20website!!!";
+  window.location.href = "mailto:elaaa066@gmail.com?subject=Hello%20from%20your%20website!!!";
 });
 
 
@@ -54,14 +59,11 @@ if (gifImg) {
   gifImg.src = gifs[randomIndex];
 }
 
- const interval = setInterval(() => {
-      count += Math.floor(Math.random() * 10000) + 1000;
-      if (count >= targetCount) {
-        count = targetCount;
-        clearInterval(interval);
-      }
-      counterEl.textContent = String(count).padStart(6, '0');
-    }, 50);
+if (bioSection){
+  const randomBio = bioPhrases[Math.floor(Math.random() * bioPhrases.length)];
+  bioSection.textContent = randomBio;
+}
+ 
 
     // Sparkle cursor trail
     document.addEventListener('mousemove', (e) => {
